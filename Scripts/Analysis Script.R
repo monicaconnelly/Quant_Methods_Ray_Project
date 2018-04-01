@@ -74,9 +74,21 @@ rdata_feed <- read_excel("Quant_Methods_Ray_Project/The Shallows Data.xlsx",
 
 ## Create summary cols and cbind in new table
 
-cb_tot <- rowSums(rdata_cb[, -c(rdata_cb$Date, rdata_cb$Time)])
+cb_tot <- rowSums(rdata_cb[, -c(1, 2)])
+cp_tot <- rowSums(rdata_cp[, -c(1, 2)])
+sb_tot <- rowSums(rdata_sb[, -c(1, 2)])
+sp_tot <- rowSums(rdata_sp[, -c(1, 2)])
+feed_tot <- rowSums(rdata_feed[, -c(1, 2)])
+cw_avg <- rowMeans(rdata_cw[, -c(1, 2, 3)])
+sw_avg <- rowMeans(rdata_sw[, -c(1, 2, 3)])
+intact_avg <- rowMeans(rdata_intact[, -c(1, 2)])
+mxdb_avg <- rowMeans(rdata_mxdb[, -c(1, 2)])
+prsnt_avg <- rowMeans(rdata_prsnt[, -c(1, 2)])
+
+rdata <- cbind(rdata_gen$Date, rdata_gen$Time, prsnt_avg, intact_avg, mxdb_avg, feed_tot, cw_avg, cp_tot, cb_tot, sw_avg, sp_tot, sb_tot)
 
 
+## Run Models
 
 
 
