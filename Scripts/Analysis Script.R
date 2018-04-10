@@ -2,9 +2,11 @@
 ## Import Data
 
 install.packages("tidyverse")
+install.packages("pillar")
+install.packages("zoo")
 library(tidyverse)
 library(readxl)
-install.packages("pillar")
+library("zoo")
 
 rdata_gen <- read_excel("Quant_Methods_Ray_Project/The Shallows Data.xlsx", 
                         sheet = "General", col_types = c("date", 
