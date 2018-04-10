@@ -91,6 +91,53 @@ rdata <- cbind(rdata_gen$Date, rdata_gen$Time, prsnt_avg, intact_avg, mxdb_avg, 
 ## Run Models
 
 
+prsnt_by_wind_lm <- lm(prsnt_avg ~ V3, data = rdata.df)
+prsnt_by_wind_cor <- cor.test(rdata.df$prsnt_avg, rdata.df$V3, method="pearson")
+summary(prsnt_by_wind_lm)
+intact_by_prsnt_lm <- lm(intact_avg ~ prsnt_avg, data = rdata.df)
+intact_by_prsnt_cor <- cor.test(rdata.df$intact_avg, rdata.df$prsnt_avg, method="pearson")
+summary(intact_by_prsnt_lm)
+mxdb_by_prsnt_lm <- lm(mxdb_avg ~ prsnt_avg, data = rdata.df)
+mxdb_by_prsnt_cor <- cor.test(rdata.df$mxdb_avg, rdata.df$prsnt_avg, method="pearson")
+summary(mxdb_by_prsnt_lm)
+feed_by_mxdb_lm <- lm(feed_tot ~ mxdb_avg, data = rdata.df)
+feed_by_mxdb_cor <- cor.test(rdata.df$feed_tot, rdata.df$mxdb_avg, method="pearson")
+summary(feed_by_mxdb_lm)
+
+#PLOT EACH INTERACTION
+
+cb_by_prsnt <- lm(cb_tot ~ prsnt_avg, data = rdata.df)
+cp_by_prsnt <- lm(cp_tot ~ prsnt_avg, data = rdata.df)
+cw_by_prsnt <- lm(cw_avg ~ prsnt_avg, data = rdata.df)
+#PLOT THE ABOVE HERE IN ONE GRAPH
+
+sb_by_prsnt <- lm(sb_tot ~ prsnt_avg, data = rdata.df)
+sp_by_prsnt <- lm(sp_tot ~ prsnt_avg, data = rdata.df)
+sw_by_prsnt <- lm(sw_avg ~ prsnt_avg, data = rdata.df)
+#PLOT THE ABOVE HERE IN ONE GRAPH
+
+cb_by_mxdb <- lm(cb_tot ~ mxdb_avg, data = rdata.df)
+cp_by_mxdb <- lm(cp_tot ~ mxdb_avg, data = rdata.df)
+cw_by_mxdb <- lm(cw_avg ~ mxdb_avg, data = rdata.df)
+#PLOT THE ABOVE HERE IN ONE GRAPH
+
+sb_by_mxdb <- lm(sb_tot ~ mxdb_avg, data = rdata.df)
+sp_by_mxdb <- lm(sp_tot ~ mxdb_avg, data = rdata.df)
+sw_by_mxdb <- lm(sw_avg ~ mxdb_avg, data = rdata.df)
+#PLOT THE ABOVE HERE IN ONE GRAPH
+
+cb_by_feed <- lm(cb_tot ~ feed_tot, data = rdata.df)
+cp_by_feed <- lm(cp_tot ~ feed_tot rdata.df)
+cw_by_feed <- lm(cw_avg ~ feed_tot, data = rdata.df)
+#PLOT THE ABOVE HERE
+
+#ALSO DO BEHAVIOR BY MULTIFACTORS HERE!!!
+cb_by_all <- 
+cp_by_all <- 
+cw_by_all <- 
+  
+  
+  
 
 
 
