@@ -12,73 +12,20 @@ library("car")
 library("psych")
 
 
+# read in all CSV files in Data folder and rename
 
+rdata_gen <- ShallowsGeneral
+rdata_mxdb <- ShallowsMaxDB
+rdata_prsnt <- ShallowsPresent
+rdata_intact <- ShallowsInteracting
+rdata_feed <- ShallowsFeed
+rdata_cb <- ShallowsCownoseBreach
+rdata_cp <- ShallowsCownosePeak
+rdata_cw <- ShallowsCownoseWave
+rdata_sb <- ShallowsSouthernBreach
+rdata_sp <- ShallowsSouthernPeak
+rdata_sw <- ShallowsSouthernWave
 
-
-rdata_gen <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                        sheet = "General", col_types = c("date", 
-                                                         "date", "blank", "blank", "numeric", "blank"))
-
-rdata_cb <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                       sheet = "C - breach", col_types = c("date", 
-                                                           "date", "blank", "numeric", "numeric", "numeric",
-                                                           "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                           "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                           "numeric", "numeric"))
-
-rdata_cp <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                       sheet = "C - peek", col_types = c("date", 
-                                                         "date", "blank", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_cw <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                       sheet = "C - wave", col_types = c("date", 
-                                                         "date", "blank", "text", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_sb <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                       sheet = "S - breach", col_types = c("date", 
-                                                           "date", "blank", "numeric", "numeric", 
-                                                           "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                           "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_sp <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                       sheet = "S - peek", col_types = c("data", 
-                                                         "data", "blank", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_sw <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                       sheet = "S - wave", col_types = c("date", 
-                                                         "date", "blank", "text", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_prsnt <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                          sheet = "Present", col_types = c("date", 
-                                                           "date", "blank", "numeric", "numeric", 
-                                                           "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                           "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_intact <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                           sheet = "Interacting", col_types = c("date", 
-                                                                "date", "blank", "numeric", "numeric", 
-                                                                "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                                "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_mxdb <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                         sheet = "Max db", col_types = c("date", 
-                                                         "date", "blank", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                         "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
-
-rdata_feed <- read_excel("CofC/CofC 2017-2018/Spring 2018/Quant Methods 453/The Shallows Data.xlsx", 
-                         sheet = "Feed", col_types = c("date", 
-                                                       "date", "blank", "numeric", "numeric", 
-                                                       "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", 
-                                                       "numeric", "numeric", "numeric", "numeric", "numeric", "numeric", "numeric"))
 
 
 # Create summary cols and cbind in new table
