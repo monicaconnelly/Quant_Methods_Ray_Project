@@ -32,10 +32,5 @@ wind = wind speed during that data collection period
 
 The code presented here is intended to be run in order, at least initially, to ensure all variables are defined prior to use later on in the script.
 
-## General Findings
-
-
-## Importance/Significance
-
 
 
